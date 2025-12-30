@@ -9,16 +9,20 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
-      - name: Set up Java 17
+      - name: Show root files
+        run: ls -l
+
+      - name: Show project files
+        run: ls -l Maven_Demo_Project_30_12_2025
+
+      - name: Set up Java
         uses: actions/setup-java@v3
         with:
           java-version: '17'
           distribution: 'temurin'
 
-      - name: Build with Maven
+      - name: Run Maven
         run: mvn clean test
         working-directory: Maven_Demo_Project_30_12_2025
-
